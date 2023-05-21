@@ -11,22 +11,22 @@ function Navbar({ items, searchbar, logoPositionMobile, orderElement }: {
   searchbar: SearchbarProps;
   logoPositionMobile?: "left" | "right" | "center";
   orderElement?: {
-    menu?: 1 | 2 | 3 | 4
-    logo?: 1 | 2 | 3 | 4
-    search?: 1 | 2 | 3 | 4
-    cart?: 1 | 2 | 3 | 4
-  }
+    menu?: 1 | 2 | 3 | 4;
+    logo?: 1 | 2 | 3 | 4;
+    search?: 1 | 2 | 3 | 4;
+    cart?: 1 | 2 | 3 | 4;
+  };
 }) {
   const logoPosition = logoPositionMobile === "center"
     ? "justify-center"
     : (logoPositionMobile === "right" ? "justify-end" : "");
-  
+
   const orderVariants = {
-    1: 'order-1',
-    2: 'order-2',
-    3: 'order-3',
-    4: 'order-4',
-  }
+    1: "order-1",
+    2: "order-2",
+    3: "order-3",
+    4: "order-4",
+  };
 
   return (
     <>
@@ -35,21 +35,24 @@ function Navbar({ items, searchbar, logoPositionMobile, orderElement }: {
         style={{ height: navbarHeight }}
         class="md:hidden flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6 gap-2"
       >
-        <Buttons variant="menu" orderElement={orderElement}/>
+        <Buttons variant="menu" orderElement={orderElement} />
 
         <a
           href="/"
-          class={`flex-grow inline-flex items-center ${logoPosition} ${orderElement?.logo && orderVariants[orderElement.logo]}`}
+          class={`flex-grow inline-flex items-center ${logoPosition} ${
+            orderElement?.logo && orderVariants[orderElement.logo]
+          }`}
           style={{ minHeight: navbarHeight }}
           aria-label="Store logo"
         >
-          <div className="w-16 h-16 bg-cover bg-[url('https://merciwithlove.vteximg.com.br/arquivos/logo@2x.png')]"></div>
+          <div className="w-16 h-16 bg-cover bg-[url('https://merciwithlove.vteximg.com.br/arquivos/logo@2x.png')]">
+          </div>
           {/* <Icon id="Logo" width={126} height={16} /> */}
         </a>
 
         {/* <div class="flex gap-1"> */}
-          <Buttons variant="search" orderElement={orderElement}/>
-          <Buttons variant="cart" orderElement={orderElement} />
+        <Buttons variant="search" orderElement={orderElement} />
+        <Buttons variant="cart" orderElement={orderElement} />
         {/* </div> */}
       </div>
 

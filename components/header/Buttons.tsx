@@ -13,7 +13,7 @@ declare global {
   }
 }
 
-function SearchButton({orderElement}:{orderElement?: string}) {
+function SearchButton({ orderElement }: { orderElement?: string }) {
   const { displaySearchbar } = useUI();
 
   return (
@@ -29,7 +29,7 @@ function SearchButton({orderElement}:{orderElement?: string}) {
   );
 }
 
-function MenuButton({orderElement}:{orderElement?: string}) {
+function MenuButton({ orderElement }: { orderElement?: string }) {
   const { displayMenu } = useUI();
 
   return (
@@ -45,7 +45,7 @@ function MenuButton({orderElement}:{orderElement?: string}) {
   );
 }
 
-function CartButton({orderElement}:{orderElement?: string}) {
+function CartButton({ orderElement }: { orderElement?: string }) {
   const { displayCart } = useUI();
   const { loading, cart, mapItemsToAnalyticsItems } = useCart();
   const totalItems = cart.value?.items.length || null;
@@ -102,21 +102,34 @@ function Buttons(
   },
 ) {
   const orderVariants = {
-    1: 'order-1',
-    2: 'order-2',
-    3: 'order-3',
-    4: 'order-4',
-  }
+    1: "order-1",
+    2: "order-2",
+    3: "order-3",
+    4: "order-4",
+  };
   if (variant === "cart") {
-    return <CartButton orderElement={orderElement?.cart && orderVariants[orderElement.cart]}/>;
+    return (
+      <CartButton
+        orderElement={orderElement?.cart && orderVariants[orderElement.cart]}
+      />
+    );
   }
 
   if (variant === "search") {
-    return <SearchButton orderElement={orderElement?.search && orderVariants[orderElement.search]}/>;
+    return (
+      <SearchButton
+        orderElement={orderElement?.search &&
+          orderVariants[orderElement.search]}
+      />
+    );
   }
 
   if (variant === "menu") {
-    return <MenuButton orderElement={orderElement?.menu && orderVariants[orderElement.menu]}/>;
+    return (
+      <MenuButton
+        orderElement={orderElement?.menu && orderVariants[orderElement.menu]}
+      />
+    );
   }
 
   return null;
