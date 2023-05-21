@@ -41,6 +41,15 @@ export interface Props {
    */
   products?: LoaderReturnType<Product[] | null>;
 
+  orderElement?: {
+    menu?: 1 | 2 | 3 | 4
+    logo?: 1 | 2 | 3 | 4
+    search?: 1 | 2 | 3 | 4
+    cart?: 1 | 2 | 3 | 4
+  }
+
+  logoPositionMobile?: "left" | "right" | "center"
+
   /**
    * @title Enable Top Search terms
    */
@@ -54,6 +63,8 @@ function Header(
     products,
     navItems = [],
     suggestions,
+    logoPositionMobile,
+    orderElement,
   }: Props,
 ) {
   const searchbar = { ..._searchbar, products, suggestions };
@@ -62,7 +73,7 @@ function Header(
       <header style={{ height: headerHeight }}>
         <div class="bg-base-100 fixed w-full z-50">
           <Alert alerts={alerts} />
-          <Navbar items={navItems} searchbar={searchbar} />
+          <Navbar orderElement={orderElement} logoPositionMobile={logoPositionMobile} items={navItems} searchbar={searchbar} />
         </div>
 
         <Modals

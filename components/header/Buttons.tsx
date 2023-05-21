@@ -13,12 +13,12 @@ declare global {
   }
 }
 
-function SearchButton() {
+function SearchButton({orderElement}:{orderElement?: string}) {
   const { displaySearchbar } = useUI();
 
   return (
     <Button
-      class="btn-square btn-ghost"
+      class={`btn-square btn-ghost ${orderElement}`}
       aria-label="search icon button"
       onClick={() => {
         displaySearchbar.value = !displaySearchbar.peek();
@@ -29,12 +29,12 @@ function SearchButton() {
   );
 }
 
-function MenuButton() {
+function MenuButton({orderElement}:{orderElement?: string}) {
   const { displayMenu } = useUI();
 
   return (
     <Button
-      class="btn-square btn-ghost"
+      class={`btn-square btn-ghost ${orderElement}`}
       aria-label="open menu"
       onClick={() => {
         displayMenu.value = true;
@@ -45,7 +45,7 @@ function MenuButton() {
   );
 }
 
-function CartButton() {
+function CartButton({orderElement}:{orderElement?: string}) {
   const { displayCart } = useUI();
   const { loading, cart, mapItemsToAnalyticsItems } = useCart();
   const totalItems = cart.value?.items.length || null;
@@ -72,7 +72,7 @@ function CartButton() {
 
   return (
     <Button
-      class="btn-square btn-ghost relative"
+      class={`btn-square btn-ghost relative ${orderElement && orderElement}`}
       aria-label="open cart"
       data-deco={displayCart.value && "open-cart"}
       loading={loading.value}
@@ -90,17 +90,33 @@ function CartButton() {
   );
 }
 
-function Buttons({ variant }: { variant: "cart" | "search" | "menu" }) {
+function Buttons(
+  { variant, orderElement }: {
+    variant: "cart" | "search" | "menu";
+    orderElement?: {
+      menu?: 1 | 2 | 3 | 4;
+      logo?: 1 | 2 | 3 | 4;
+      search?: 1 | 2 | 3 | 4;
+      cart?: 1 | 2 | 3 | 4;
+    };
+  },
+) {
+  const orderVariants = {
+    1: 'order-1',
+    2: 'order-2',
+    3: 'order-3',
+    4: 'order-4',
+  }
   if (variant === "cart") {
-    return <CartButton />;
+    return <CartButton orderElement={orderElement?.cart && orderVariants[orderElement.cart]}/>;
   }
 
   if (variant === "search") {
-    return <SearchButton />;
+    return <SearchButton orderElement={orderElement?.search && orderVariants[orderElement.search]}/>;
   }
 
   if (variant === "menu") {
-    return <MenuButton />;
+    return <MenuButton orderElement={orderElement?.menu && orderVariants[orderElement.menu]}/>;
   }
 
   return null;

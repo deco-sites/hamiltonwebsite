@@ -7502,7 +7502,7 @@
       "required": [],
       "title": "OptionalColors"
     },
-    "ZGVjby1zaXRlcy9oYW1pbHRvbndlYnNpdGUvc2VjdGlvbnMvRGVzaWduU3lzdGVtLnRzeA==@Colors&b966eeb0bbdb3699ee11b12ce6a39cc4": {
+    "ZGVjby1zaXRlcy9oYW1pbHRvbndlYnNpdGUvc2VjdGlvbnMvRGVzaWduU3lzdGVtLnRzeA==@95392b60ca35c69ab30e7543a0617ca3&Colors": {
       "allOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9oYW1pbHRvbndlYnNpdGUvc2VjdGlvbnMvRGVzaWduU3lzdGVtLnRzeA==@Colors"
@@ -7518,7 +7518,7 @@
           "required": []
         }
       ],
-      "title": "Colors&b966eeb0bbdb3699ee11b12ce6a39cc4"
+      "title": "95392b60ca35c69ab30e7543a0617ca3&Colors"
     },
     "ZGVjby1zaXRlcy9oYW1pbHRvbndlYnNpdGUvc2VjdGlvbnMvRGVzaWduU3lzdGVtLnRzeA==@Miscellaneous": {
       "type": "object",
@@ -7621,7 +7621,7 @@
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9oYW1pbHRvbndlYnNpdGUvc2VjdGlvbnMvRGVzaWduU3lzdGVtLnRzeA==@Colors&b966eeb0bbdb3699ee11b12ce6a39cc4",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9oYW1pbHRvbndlYnNpdGUvc2VjdGlvbnMvRGVzaWduU3lzdGVtLnRzeA==@95392b60ca35c69ab30e7543a0617ca3&Colors",
           "title": "Colors"
         },
         "miscellaneous": {
@@ -8184,6 +8184,119 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
           "title": "Product suggestions",
           "description": "Product suggestions displayed on search"
+        },
+        "orderElement": {
+          "type": "object",
+          "properties": {
+            "menu": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "const": 1
+                },
+                {
+                  "type": "number",
+                  "const": 2
+                },
+                {
+                  "type": "number",
+                  "const": 3
+                },
+                {
+                  "type": "number",
+                  "const": 4
+                }
+              ],
+              "type": "number",
+              "title": "Menu"
+            },
+            "logo": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "const": 1
+                },
+                {
+                  "type": "number",
+                  "const": 2
+                },
+                {
+                  "type": "number",
+                  "const": 3
+                },
+                {
+                  "type": "number",
+                  "const": 4
+                }
+              ],
+              "type": "number",
+              "title": "Logo"
+            },
+            "search": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "const": 1
+                },
+                {
+                  "type": "number",
+                  "const": 2
+                },
+                {
+                  "type": "number",
+                  "const": 3
+                },
+                {
+                  "type": "number",
+                  "const": 4
+                }
+              ],
+              "type": "number",
+              "title": "Search"
+            },
+            "cart": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "const": 1
+                },
+                {
+                  "type": "number",
+                  "const": 2
+                },
+                {
+                  "type": "number",
+                  "const": 3
+                },
+                {
+                  "type": "number",
+                  "const": 4
+                }
+              ],
+              "type": "number",
+              "title": "Cart"
+            }
+          },
+          "required": [],
+          "title": "Order Element"
+        },
+        "logoPositionMobile": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "left"
+            },
+            {
+              "type": "string",
+              "const": "right"
+            },
+            {
+              "type": "string",
+              "const": "center"
+            }
+          ],
+          "type": "string",
+          "title": "Logo Position Mobile"
         },
         "suggestions": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Suggestion|null",
